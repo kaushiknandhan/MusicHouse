@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.musichouse.entity.Product;
-import io.musichouse.exception.UserNotFoundException;
+import io.musichouse.exception.ProductNotFoundException;
 import io.musichouse.service.ProductService;
 
 @RestController
@@ -28,7 +28,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(path="{id}",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Product findOne(@PathVariable(value="id") String productId) throws UserNotFoundException{
+	public Product findOne(@PathVariable(value="id") String productId) throws ProductNotFoundException{
 		Product product = productService.findOne(productId);
 		return product;
 	}
@@ -38,12 +38,12 @@ public class ProductController {
 		return newProduct;
 	}
 	@RequestMapping(value="{id}",method=RequestMethod.PUT,produces=MediaType.APPLICATION_JSON_UTF8_VALUE,consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Product upadteProduct(@RequestBody Product product, @PathVariable(value="id") String productId) throws UserNotFoundException{
+	public Product upadteProduct(@RequestBody Product product, @PathVariable(value="id") String productId) throws ProductNotFoundException{
 		Product updatedProduct = productService.updateProduct(product,productId);
 		return  updatedProduct;
 	}
 	@RequestMapping(value="{id}",method=RequestMethod.DELETE)
-	public void deleteProduct(@PathVariable(value="id") String productId) throws UserNotFoundException{
+	public void deleteProduct(@PathVariable(value="id") String productId) throws ProductNotFoundException{
 		productService.deleteProduct(productId);
 	}
 

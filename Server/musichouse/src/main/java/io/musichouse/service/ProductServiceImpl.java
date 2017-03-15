@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.musichouse.entity.Product;
-import io.musichouse.exception.UserNotFoundException;
+import io.musichouse.exception.ProductNotFoundException;
 import io.musichouse.repository.ProductRepository;
 
 @Service
@@ -23,10 +23,10 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public Product findOne(String productId) throws UserNotFoundException {
+	public Product findOne(String productId) throws ProductNotFoundException {
 		Product product = productRepository.findOne(productId);
 		if(product == null){
-			throw new UserNotFoundException();
+			throw new ProductNotFoundException();
 		}
 		return product;
 	}
@@ -38,24 +38,24 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public Product updateProduct(Product product, String productId) throws UserNotFoundException {
+	public Product updateProduct(Product product, String productId) throws ProductNotFoundException {
 		Product existingProduct = productRepository.findOne(productId);
 		if(existingProduct != null){
 			Product updateProduct = productRepository.updateProduct(product);
 			return updateProduct;
 		}else{
-			throw new UserNotFoundException();
+			throw new ProductNotFoundException();
 		}
 		
 	}
 
 	@Override
-	public void deleteProduct(String productId) throws UserNotFoundException {
+	public void deleteProduct(String productId) throws ProductNotFoundException {
 		Product existingProduct = productRepository.findOne(productId);
 		if(existingProduct!= null){
 			productRepository.deleteProduct(existingProduct);	
 		}else{
-			throw new UserNotFoundException();
+			throw new ProductNotFoundException();
 		}
 		
 		
