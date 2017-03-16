@@ -16,4 +16,6 @@ public interface ProductRepository {
 
 	public void deleteProduct(Product existingProduct);
 
+	public Product findOneProduct(String existingProductId);
+
 }

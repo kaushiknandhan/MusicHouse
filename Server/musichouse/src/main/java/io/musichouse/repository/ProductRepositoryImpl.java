@@ -12,20 +12,20 @@ import io.musichouse.entity.Product;
 
 @Repository
 public class ProductRepositoryImpl implements ProductRepository {
-	
+
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public List<Product> getProducts() {
-		TypedQuery<Product> query = em.createQuery("select p from Product p order by productName ASC",Product.class);
+		TypedQuery<Product> query = em.createQuery("select p from Product p order by productName ASC", Product.class);
 		List<Product> productList = query.getResultList();
 		return productList;
 	}
 
 	@Override
 	public Product findOne(String productId) {
-		
+
 		return em.find(Product.class, productId);
 	}
 
@@ -43,8 +43,12 @@ public class ProductRepositoryImpl implements ProductRepository {
 
 	@Override
 	public void deleteProduct(Product product) {
-		em.remove(product);		
+		em.remove(product);
 	}
 
-	
+	@Override
+	public Product findOneProduct(String existingProductId) {
+		return em.find(Product.class, existingProductId);
+	}
+
 }

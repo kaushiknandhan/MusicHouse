@@ -30,7 +30,7 @@ public class JPAConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setDataSource(dataSource());
-		emf.setPackagesToScan(new String[] { "io.musichouse.entity" });
+		emf.setPackagesToScan(new String[] {"io.musichouse.entity"});
 
 		JpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
 		emf.setJpaVendorAdapter(adapter);

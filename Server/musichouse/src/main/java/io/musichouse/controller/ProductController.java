@@ -42,9 +42,10 @@ public class ProductController {
 		Product updatedProduct = productService.updateProduct(product,productId);
 		return  updatedProduct;
 	}
-	@RequestMapping(value="{id}",method=RequestMethod.DELETE)
-	public void deleteProduct(@PathVariable(value="id") String productId) throws ProductNotFoundException{
-		productService.deleteProduct(productId);
-	}
+	// Avoid Deletion
+//	@RequestMapping(value="{id}",method=RequestMethod.DELETE)
+//	public void deleteProduct(@PathVariable(value="id") String productId) throws ProductNotFoundException{
+//		productService.deleteProduct(productId);
+//	}
 
 }
