@@ -14,4 +14,6 @@ public interface CartItemRepository {
 
 	public List<CartItem> getMostSoldItems();
 
+	public CartItem findOne(String cartId);
+
 }

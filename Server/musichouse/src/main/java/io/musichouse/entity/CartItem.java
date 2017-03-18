@@ -20,7 +20,7 @@ public class CartItem {
 	@GenericGenerator(name="myuuid",strategy="uuid2")
 	@GeneratedValue(generator="myuuid")
 	private String cartItemId;
-	@ManyToOne(cascade={CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH},fetch=FetchType.EAGER)
+	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.REFRESH},fetch=FetchType.EAGER)
 	private Product product;
 	private String TotalPrice;
 	private String quantity;

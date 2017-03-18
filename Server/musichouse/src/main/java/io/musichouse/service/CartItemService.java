@@ -12,4 +12,6 @@ public interface CartItemService {
 
 	public List<CartItem> getMostSoldItems();
 
+	public CartItem findOne(String cartId);
+
 }

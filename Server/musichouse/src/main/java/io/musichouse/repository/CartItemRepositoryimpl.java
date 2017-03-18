@@ -38,5 +38,9 @@ public class CartItemRepositoryimpl implements CartItemRepository{
 		 List<CartItem> MostSoldItems = query.getResultList();
 		return MostSoldItems;
 	}
+	@Override
+	public CartItem findOne(String cartId) {		
+		return em.find(CartItem.class, cartId);
+	}
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,5 +33,11 @@ public class CartItemController {
 		List<CartItem> mostSoldItems = cartItemService.getMostSoldItems();
 		return mostSoldItems;
 	}
+	@RequestMapping(path="{id}",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public CartItem getMostSoldItems(@PathVariable(name="id") String cartId){
+		CartItem cartItem = cartItemService.findOne(cartId);
+		return cartItem;
+	}
+	
 
 }

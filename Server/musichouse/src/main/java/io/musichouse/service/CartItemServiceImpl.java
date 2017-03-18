@@ -30,6 +30,11 @@ public class CartItemServiceImpl implements CartItemService {
 		List<CartItem> mostSoldItems = cartItemRepository.getMostSoldItems();
 		return mostSoldItems;
 	}
+	@Override
+	public CartItem findOne(String cartId) {
+		
+		return cartItemRepository.findOne(cartId);
+	}
 	
 
 }
