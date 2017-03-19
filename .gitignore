@@ -6,6 +6,7 @@
 **/.dist
 **/.sass-cache
 **/.recommenders
+**/.build
 
 **/.settings
 **/.metadata
