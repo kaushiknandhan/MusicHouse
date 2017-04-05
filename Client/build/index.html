@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="musichouse">
+<head>
+    <meta charset="UTF-8">
+    <title>MusicHouse</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/components-font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- endinject -->
+
+    <!-- vendor:css -->
+    <!-- endinject -->
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="styles/carousel.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/products.css">
+    <!-- endinject -->
+
+    <!-- app:css -->
+    <!-- endinject -->
+</head>
+<body>
+<section ng-view=""></section>
+<!-- bower:js -->
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.js"></script>
+<script src="/bower_components/angular-touch/angular-touch.js"></script>
+<script src="/bower_components/angular-messages/angular-messages.js"></script>
+<!-- endinject -->
+
+<!-- vendor:js -->
+<!-- endinject -->
+
+<!-- inject:js -->
+<script src="app/app.js"></script>
+<script src="app/service/user.service.js"></script>
+<script src="app/service/shippingAddress.service.js"></script>
+<script src="app/service/product.service.js"></script>
+<script src="app/service/customer.service.js"></script>
+<script src="app/service/cartItem.service.js"></script>
+<script src="app/service/billing.service.js"></script>
+<script src="app/directive/navBar.directive.js"></script>
+<script src="app/directive/carousel.directive.js"></script>
+<script src="app/controller/user.controller.js"></script>
+<script src="app/controller/shippingAddress.controller.js"></script>
+<script src="app/controller/productInfo.controller.js"></script>
+<script src="app/controller/product.controller.js"></script>
+<script src="app/controller/navbar.controller.js"></script>
+<script src="app/controller/customer.controller.js"></script>
+<script src="app/controller/cartItem.controller.js"></script>
+<script src="app/controller/carousel.controller.js"></script>
+<script src="app/controller/billing.controller.js"></script>
+<!-- endinject -->
+
+<!-- app:js -->
+<!-- endinject -->
+</body>
+</html>

@@ -1,0 +1,40 @@
+<nav-bar></nav-bar>
+<div class="layout container">
+    <div class="row">
+        <h2>Cart Details</h2>
+        <h4>Your cart Details</h4>
+    </div>
+    <div class="container">
+        cartItems
+        <div class="table-layout">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Product Name</th>
+                    <th>Category</th>
+                    <th>Condition</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="cartItem in cartItemVm.cartItems">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <td><img ng-src="{{cartItem.productImage}}" class="product-img"></td>
+                        </div>
+                        <div class="col-sm-9">
+                            <td>{{cartItem.productName}}</td>
+                            <td>{{cartItem.productType}}</td>
+                            <td>{{cartItem.productCondition}}</td>
+                            <td>{{cartItem.productPrice | currency}}</td>
+                            <td><a class="btn btn-danger">remove</a></td>
+                        </div>
+                    </div>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

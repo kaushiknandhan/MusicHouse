@@ -1,0 +1,11 @@
+<div class="container-fluid carousel-box">
+    <div uib-carousel active="carouselVm.active" interval="carouselVm.myInterval" no-wrap="carouselVm.noWrapSlides">
+        <div uib-slide ng-repeat="slide in carouselVm.slides" active="carouselVm.active" index="$index">
+            <img class="carsousel-imgs" ng-src="{{slide.image}}" />
+            <div class="carousel-caption carousel-img-message">
+                <h4>{{slide.statement}}</h4>
+                <p>{{slide.author}}</p>
+            </div>
+        </div>
+    </div>
+</div>

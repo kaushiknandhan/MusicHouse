@@ -1,0 +1,22 @@
+.carsousel-imgs{
+    width: 90%;
+    height: 600px;
+    margin-top: 0px;
+    -webkit-filter: grayscale(90%);
+    filter: grayscale(90%); /* make all photos black and white */
+}
+.carousel-box{
+    margin-top: 0px;
+    padding: 0px;
+}
+.carousel-img-message {
+    font-family: 'Abril Fatface', cursive;
+    color: #FFFFFF;
+    text-shadow: 4px 4px black;
+}
+.carousel-img-message > h4{
+    font-size: 30px;
+}
+.carousel-img-message > p{
+    font-size: 20px;
+}

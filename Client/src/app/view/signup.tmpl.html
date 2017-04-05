@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="login-box">
+        <div>
+            <h2>Sign Up</h2>
+            <form name="signupForm" ng-submit="userVm.signup()" novalidate>
+                <div class="form-group">
+                    <label for="username">User Name:</label>
+                    <input type="text" class="form-control" ng-model="userVm.newUser.userName" name = "username" id="username" placeholder="User Name" minlength="5" required>
+                    <div ng-messages="signupForm.username.$error" ng-if="signupForm.username.$dirty" class="error">
+                        <p ng-message="required">This field cannot be empty</p>
+                        <p ng-message="minlength">Atleast 5 characters is required</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" class="form-control" ng-model="userVm.newUser.email" id="email" name = "email" placeholder="Email Address" required>
+                    <div ng-messages="signupForm.email.$error" ng-if="signupForm.email.$dirty" class="error">
+                        <p ng-message="required">This field cannot be empty</p>
+                        <p ng-message="email">Enter a valid Email Address</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" ng-model="userVm.newUser.password" id="pwd" name="password" placeholder="Password" minlength="8" required>
+                    <div ng-messages="signupForm.password.$error" ng-if="signupForm.password.$dirty" class="error">
+                        <p ng-message="required">This field cannot be empty</p>
+                        <p ng-message="minlength">Atleast 8 characters is required</p>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btns-login">SignUp</button>
+                <hr>
+                <p class="text-center">Already have an Account?</p>
+                <a href="#/login"><button type="submit" class="btn btn-success  btns-login">SignIn</button></a>
+            </form>
+        </div>
+    </div>
+</div>

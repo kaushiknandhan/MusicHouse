@@ -1,0 +1,25 @@
+<nav-bar></nav-bar>
+<div class="layout container">
+    <div class="row">
+        <h2>Product Details</h2>
+        <h4>Here is the detail information of the product</h4>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <img ng-src="{{productInfoVm.product.productImage}}">
+        </div>
+        <div class="col-sm-8">
+            <div class="product-details">
+                <p><strong>Description :</strong>{{' '+productInfoVm.product.productDescription}}</p>
+                <p><strong>Condition: </strong>{{' '+productInfoVm.product.productCondition}}</p>
+                <p><strong>Manufacture: </strong>{{' '+productInfoVm.product.productManufacturer}}</p>
+                <p><strong>Type:</strong>{{' '+productInfoVm.product.productType}}</p>
+                <p><strong>Price: </strong>{{' '+productInfoVm.product.productPrice |  currency}}</p>
+                <div class="cart-btn-layout">
+                    <button class="btn btn-addtocart" ng-click="productInfoVm.addProduct()"><i class="fa fa-shopping-cart cart-icon" aria-hidden="true"></i>Add to cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
