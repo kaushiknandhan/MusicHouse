@@ -3,7 +3,7 @@
  */
 (function(){
     'use strict';
-    angular.module('musichouse',['ui.bootstrap','ngRoute','ngAnimate','ngTouch','ngMessages'])
+    angular.module('musichouse',['ui.bootstrap','ngRoute','ngAnimate','ngTouch','ngMessages','ngStorage'])
         .config(moduleConfig);
 
     function moduleConfig($routeProvider,$locationProvider) {
