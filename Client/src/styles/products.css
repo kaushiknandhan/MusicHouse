@@ -48,6 +48,12 @@ input[type=search]{
     color: white;
     font-weight: bold;
 }
-.cart-icon{
+.cart-icon,.check-icon,.remove-icon,.update-icon,.continue-btn{
     padding-right: 10px;
+}
+.btn-checkout{
+    width:20%;
+    padding: 10px;
+
+
 }
