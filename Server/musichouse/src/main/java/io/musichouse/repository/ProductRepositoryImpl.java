@@ -51,4 +51,12 @@ public class ProductRepositoryImpl implements ProductRepository {
 		return em.find(Product.class, existingProductId);
 	}
 
+	@Override
+	public List<Product> getProducts(String category) {
+		TypedQuery<Product> query = em.createQuery("select p from Product p where p.productType = :ptype",Product.class);
+		query.setParameter("ptype", category);
+		List<Product> getProducts = query.getResultList();
+		return getProducts;		
+	}
+
 }

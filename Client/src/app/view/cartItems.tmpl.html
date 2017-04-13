@@ -1,28 +1,45 @@
 <nav-bar></nav-bar>
+<div class = "spinner-box"  ng-if="cartItemVm.spinner">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
 <div class="layout container">
-    <div class="row">
+    <div class="row text-center">
         <h2>Cart Details</h2>
         <h4>Your cart Details</h4>
-
-            <button class="btn btn-success pull-right btn-checkout"><i class="fa fa-check check-icon" aria-hidden="true"></i>Checkout</button>
+        <button class="btn btn-danger pull-left btn-clearcart"  ng-click="cartItemVm.removeCart()" ng-disabled="cartItemVm.disableButtons"><i class="fa fa-times remove-icon" aria-hidden="true"></i>Clear Cart</button>
+        <button class="btn btn-success pull-right btn-checkout" ng-click="cartItemVm.checkOut()" ng-disabled="cartItemVm.disableButtons"><i class="fa fa-check check-icon" aria-hidden="true"></i>Checkout</button>
 
     </div>
     <div class="container">
-        cartItems
-        <div class="table-layout">
+        <div class="row" ng-if="cartItemVm.disableButtons">
+            <div class="empty-cart-box">
+                <p class="text-center">Your Cart is empty!!! Keep shoping to find your products</p>
+                <div class="empty-cart">
+                    <i class="fa fa-shopping-cart empty-cart-icon" aria-hidden="true"></i>
+                    <div class="row text-center">
+                        <a href="#/products"><button class="btn btn-success">Continue Shopping</button></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row" ng-if="cartItemVm.showLayout">
+            <h3 class="pull-right">Total Price: {{cartItemVm.totalCartPrice | currency}}</h3>
+        </div>
+        <div class="table-layout" ng-if="cartItemVm.showLayout">
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>Image</th>
                     <th>Product Name</th>
                     <th>Category</th>
-                    <th>Condition</th>
                     <th>Price</th>
                     <th>Quantity</th>
+                    <th>Total</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="cartItem in cartItemVm.cartItems">
+                <tr ng-repeat="cartItem in cartItemVm.cartItems2">
                     <div class="row">
                         <div class="col-sm-3">
                             <td><img ng-src="{{cartItem.productImage}}" class="product-img"></td>
@@ -30,11 +47,11 @@
                         <div class="col-sm-9">
                             <td>{{cartItem.productName}}</td>
                             <td>{{cartItem.productType}}</td>
-                            <td>{{cartItem.productCondition}}</td>
                             <td>{{cartItem.productPrice | currency}}</td>
-                            <td><input type="number" value=1 ng-model="cartItem.productQuantity"></td>
+                            <td><input type="number" value=1 min="1" ng-model="cartItem.productQuantity"></td>
+                            <td>{{cartItem.totalPrice | currency}}</td>
                             <td><a class="btn btn-danger " ng-click="cartItemVm.removeItem(cartItem.productId)"><i class="fa fa-times remove-icon" aria-hidden="true"></i>remove</a>
-                                <a class="btn btn-primary" ng-click="cartItemVm.updateItem(cartItem.productId,cartItem)"><i class="fa fa-refresh update-icon" aria-hidden="true"></i>update</a>
+                                <a class="btn btn-primary" ng-click="cartItemVm.updateItem($index,cartItem)"><i class="fa fa-refresh update-icon" aria-hidden="true"></i>update</a>
                             </td>
                         </div>
                     </div>
@@ -43,9 +60,11 @@
             </table>
 
         </div>
-        <div class="row">
+        <div class="row" ng-if="cartItemVm.showLayout">
             <a href="#/products"><button class="btn btn-success">Continue Shopping</button></a>
+
         </div>
 
     </div>
 </div>
+<foot></foot>

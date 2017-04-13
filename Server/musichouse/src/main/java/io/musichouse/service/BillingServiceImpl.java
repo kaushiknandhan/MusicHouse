@@ -51,6 +51,8 @@ public class BillingServiceImpl implements BillingService {
 
 	@Override
 	public Billing checkOut(Billing billing) {
+		System.out.println("Billing service");
+		System.out.println(billing);
 		Customer currentCustomer = billing.getCustomer();
 		Customer persistedCustomer = persistCustomer(currentCustomer);
 		billing.setCustomer(persistedCustomer);

@@ -20,7 +20,8 @@
     "angular-touch": "^1.5.8",
     "angular-messages": "^1.5.8",
     "components-font-awesome": "^4.7.0",
-    "ngstorage": "^0.3.11"
+    "ngstorage": "^0.3.11",
+    "angular-ui-notification": "^0.3.6"
   },
   "overrides": {
     "bootstrap": {

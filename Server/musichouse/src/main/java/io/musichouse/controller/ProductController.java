@@ -27,6 +27,12 @@ public class ProductController {
 		return productList;
 	}
 	
+	@RequestMapping(path="/category/{caterogy}",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Product> getProducts(@PathVariable(value="caterogy") String category){
+		List<Product> productList = productService.getProducts(category);
+		return productList;
+		}
+	
 	@RequestMapping(path="{id}",method=RequestMethod.GET,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Product findOne(@PathVariable(value="id") String productId) throws ProductNotFoundException{
 		Product product = productService.findOne(productId);

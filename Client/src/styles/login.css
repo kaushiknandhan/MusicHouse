@@ -4,7 +4,7 @@
     width: 400px;
     height: auto;
     padding: 20px;
-    border: 1px solid black;
+    background-color: whitesmoke;
 }
 .btns-login{
     width: 100%;
@@ -15,7 +15,7 @@
     color:red;
 }
 
-input[type="text"],input[type="email"],input[type="password"]{
+input[type="text"],input[type="email"],input[type="password"],input[type=tel]{
 padding: 20px;
     font-weight: bold;
     color: black;

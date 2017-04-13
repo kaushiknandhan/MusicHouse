@@ -1,7 +1,10 @@
 <nav-bar></nav-bar>
+<div class = "spinner-box"  ng-if="productVm.spinner">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
 <div class="layout container">
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-6 text-center">
             <h2>ALL PRODUCTS</h2>
         </div>
         <div class="col-sm-6">
@@ -12,8 +15,8 @@
             </form>
         </div>
     </div>
-    <div class="table-layout">
-        <table class="table table-striped">
+        <div class="table-layout">
+        <table class="table">
             <thead>
             <tr>
                 <th>Image</th>
@@ -42,3 +45,4 @@
         </table>
     </div>
 </div>
+<foot></foot>

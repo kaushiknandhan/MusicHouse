@@ -18,4 +18,6 @@ public interface ProductRepository {
 
 	public Product findOneProduct(String existingProductId);
 
+	public List<Product> getProducts(String category);
+
 }

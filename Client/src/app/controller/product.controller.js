@@ -9,8 +9,9 @@
         productController.$inject = ['productService'];
         function productController(productService) {
             var productVm= this;
+            productVm.spinner = true;
+            productVm.navBarProduct = "active";
             productVm.products = [];
-
             init();
 
             function init(){
@@ -19,7 +20,10 @@
                         productVm.products = products;
                     },function (error) {
                         console.log('error from server'+error);
-                    });
+                    }).finally(function() {
+                    // called no matter success or failure
+                    productVm.spinner = false;
+                });
             }
 
         }

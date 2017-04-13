@@ -6,13 +6,14 @@
     angular.module('musichouse')
         .controller('userController',userController);
 
-    userController.$inject = ['userService','$location'];
-    function userController(userService,$location){
+    userController.$inject = ['userService','$location','$localStorage'];
+    function userController(userService,$location,$localStorage){
         var userVm = this;
         userVm.user = {};
         userVm.newUser = {};
         userVm.login = login;
         userVm.signup = signup;
+
 
         // login functionality
         function login(){
@@ -20,7 +21,12 @@
                 .then(function (user) {
                     userVm.user = user;
                     console.dir(userVm.user);
-                    $location.path('/home');
+                    $localStorage.user = userVm.user;
+                    if(userVm.user.role === "admin"){
+                        $location.path('/admin/products');
+                    }else {
+                    $location.path('/products');
+                    }
                 },function (error) {
                     console.log('error in user controller'+error);
                 });
@@ -39,5 +45,7 @@
                     console.log('error @ sgnup functionality in user controller :'+error);
                 });
         }
+
+
     }
 })();

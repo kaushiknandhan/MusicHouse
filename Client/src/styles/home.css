@@ -1,7 +1,7 @@
 .sub-imgs{
     padding: 20px;
 }
-.sub-imgs> img{
+.sub-imgs img{
     width: 100px;
     border:2px solid black;
     height: 100px;
@@ -22,5 +22,26 @@ footer{
     background: linear-gradient(to left, #232526 , #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color:white;
     font-weight: bold;
-    padding: 20px;
+    padding: 10px;
+    margin-top: 40px;
+    position:fixed;
+    bottom: -20px;
+    width: 100%;
+}
+
+.show-btns{
+    padding: 10px;
+}
+body{
+    background: #bdc3c7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.spinner-box i{
+    position: fixed;
+    top:40%;
+    left: 45%;
+    font-size: 5em;
+    color: white;
 }

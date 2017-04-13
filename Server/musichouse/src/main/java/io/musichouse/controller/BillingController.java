@@ -35,6 +35,8 @@ public class BillingController {
 
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Billing checkOut(@RequestBody Billing billing) {
+		System.out.println("Billing controller");
+		System.out.println(billing);
 		Billing finalBill = billingService.checkOut(billing);
 		return finalBill;
 	}

@@ -11,6 +11,9 @@
         var productVm = this;
         productVm.getProducts = getProducts;
         productVm.getProductsInfo = getProductsInfo;
+        productVm.getProductsByType = getProductsByType;
+        productVm.addProduct = addProduct;
+        productVm.editProduct = editProduct;
 
         function getProducts(){
             return $http.get('http://localhost:8080/musichouse/api/products/')
@@ -18,6 +21,21 @@
         }
         function getProductsInfo(productId) {
             return $http.get('http://localhost:8080/musichouse/api/products/'+productId)
+                .then(successFn,errorFn);
+        }
+
+        function addProduct(newProduct) {
+            return $http.post('http://localhost:8080/musichouse/api/products/',newProduct)
+                .then(successFn,errorFn);
+        }
+
+        function  getProductsByType(type) {
+            return $http.get('http://localhost:8080/musichouse/api/products/category/'+type)
+                .then(successFn,errorFn);
+        }
+
+        function  editProduct(product,productId) {
+            return $http.put('http://localhost:8080/musichouse/api/products/'+productId,product)
                 .then(successFn,errorFn);
         }
         function successFn(response) {

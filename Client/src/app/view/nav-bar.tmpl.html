@@ -12,14 +12,27 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#/products">Products</a></li>
-                        <li><a href="#/cart">Cart</a></li>
-                        <li><a href="#">About</a></li>
+                        <li class="{{homeVm.navBarHome}}"><a href="#">Home</a></li>
+                        <li  class="{{productVm.navBarProduct}}"><a href="#/products">Products</a></li>
+                        <li class="{{aboutVm.navBarAbout}}"><a href="#/about">About</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" ng-click="navbarVm.dropDownActivate()">Category
+                            <span class="caret"></span></a>
+                            <div class="dropdown-content" ng-if="navbarVm.dropDownActive">
+                                <ul>
+                                    <li><a href="#/products/category/Instrument">instruments</a></li>
+                                    <li><a href="#/products/category/Accesory">accesories</a></li>
+                                        <li><a href="#/products/category/Record">discography</a></li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#/signup"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-                        <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                        <li class="{{cartItemVm.navBarCart}}"><a href="#/cart"><i class="fa fa-shopping-cart cart-icon" aria-hidden="true"></i>{{navbarVm.cartValue+' '}}Cart</a></li>
+                        <li ng-if="navbarVm.isloggedIn"><a>Welcome<span class="glyphicon glyphicon-user user-icon"></span>{{navbarVm.user.userName}}</a></li>
+                        <li ng-if="!navbarVm.isloggedIn"><a href="#/signup"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                        <li ng-if="!navbarVm.isloggedIn"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                        <li ng-if="navbarVm.isloggedIn" ng-click="navbarVm.userLogOut()"><a class="logout-icon"><span class="glyphicon glyphicon-log-out" ></span>Logout</a></li>
                     </ul>
                 </div>
             </div>

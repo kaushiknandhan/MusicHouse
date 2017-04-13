@@ -18,7 +18,7 @@ public class BillingRepositoryImpl implements BillingRepository {
 
 	@Override
 	public List<Billing> getBills() {
-		TypedQuery<Billing> query = em.createQuery("select b from Billing b", Billing.class);
+		TypedQuery<Billing> query = em.createQuery("select b from Billing b order by b.orderedOn desc", Billing.class);
 		List<Billing> allBills = query.getResultList();
 		return allBills;
 	}
