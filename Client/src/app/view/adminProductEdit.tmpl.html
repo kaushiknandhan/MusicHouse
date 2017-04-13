@@ -1,0 +1,79 @@
+<navbar-admin></navbar-admin>
+<div class="layout container">
+    <div class="row">
+        <h2>Edit Product Details</h2>
+        <h4>Here is the detail information of the product</h4>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <img ng-src="{{productInfoVm.product.productImage}}">
+        </div>
+        <div class="col-sm-8">
+            <div class="product-edit-details">
+                <form name="editProductForm" ng-submit="productInfoVm.editProduct()" novalidate>
+                    <div class="form-group">
+                        <label for="productname">Product Name:</label>
+                        <input type="text" class="form-control" ng-model="productInfoVm.product.productName" name = "productname" id="productname" placeholder="Product Name" required>
+                        <div ng-messages="editProductForm.productname.$error" ng-if="editProductForm.productname.$dirty" class="error">
+                            <p ng-message="required">This field cannot be empty</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="producttype">Product Type:</label>
+                        <select class="form-control" name="producttype" id="producttype" ng-model="productInfoVm.product.productType" required>
+                            <option value="Accesory">Accesory</option>
+                            <option value="Record">Record</option>
+                            <option value="Instrument">Instrument</option>
+                        </select>
+                        <div ng-messages="editProductForm.producttype.$error" ng-if="editProductForm.producttype.$dirty" class="error">
+                            <p ng-message="required">This field cannot be empty</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productprice">Product Price:</label>
+                        <input type="text" class="form-control" ng-model="productInfoVm.product.productPrice" id="productprice" name="productprice" placeholder="Product price" required>
+                        <div ng-messages="editProductForm.productprice.$error" ng-if="editProductForm.productprice.$dirty" class="error">
+                            <p ng-message="required">This field cannot be empty</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productmanufacture">Product manufacturer:</label>
+                        <input type="text" class="form-control" ng-model="productInfoVm.product.productManufacturer" id="productmanufacture" name="productmanufacture" placeholder="Product Manufacturer" required>
+                        <div ng-messages="editProductForm.productmanufacture.$error" ng-if="editProductForm.productmanufacture.$dirty" class="error">
+                            <p ng-message="required">This field cannot be empty</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productdescription">Product Description:</label>
+                        <textarea class="form-control" ng-model="productInfoVm.product.productDescription"  id="productdescription"   name="productdescription" placeholder="Product Description...." rows="5" id="comment" required></textarea>
+                        <div ng-messages="editProductForm.productdescription.$error" ng-if="editProductForm.productdescription.$dirty" class="error">
+                            <p ng-message="required">This field cannot be empty</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productcondition">Product Condition:</label>
+                        <select class="form-control" name="productcondition" id="productcondition" ng-model="productInfoVm.product.productCondition" required>
+                            <option value="available">available</option>
+                            <option value="notavailable">notavailable</option>
+                        </select>
+                        <div ng-messages="editProductForm.productcondition.$error" ng-if="editProductForm.productcondition.$dirty" class="error">
+                            <p ng-message="required">This field cannot be empty</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productimage">Product Image:</label>
+                        <input type="text" class="form-control" ng-model="productInfoVm.product.productImage" id="productimage" name="productimage" placeholder="Product Image eg., http://..." required>
+                        <div ng-messages="editProductForm.productimage.$error" ng-if="editProductForm.productimage.$dirty" class="error">
+                            <p ng-message="required">This field cannot be empty</p>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btns-login" ng-disabled="editProductForm.$invalid">Edit</button>
+                    <hr>
+                    <a href="#/admin/products"><button type="reset" class="btn btn-success  btns-login" >Cancel</button></a>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<foot></foot>

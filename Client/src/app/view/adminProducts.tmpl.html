@@ -1,0 +1,45 @@
+<navbar-admin></navbar-admin>
+<div class="layout container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>ALL PRODUCTS</h2>
+        </div>
+        <div class="col-sm-6">
+            <form>
+                <div class="form-group search-bar">
+                    <input type="search" class="form-control search-bar-icon" id="search" ng-model="productVm.searchText.productName"  name = "search" placeholder="Search here.....">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="table-layout">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Condition</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="product in productVm.products | filter: productVm.searchText">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <td><img ng-src="{{product.productImage}}" class="product-img"></td>
+                    </div>
+                    <div class="col-sm-9">
+                        <td>{{product.productName}}</td>
+                        <td>{{product.productType}}</td>
+                        <td>{{product.productCondition}}</td>
+                        <td>{{product.productPrice | currency}}</td>
+                        <td><a href="#/admin/products/{{product.productId}}"><i class="fa fa-pencil-square-o edit-icon" aria-hidden="true"></i></a></td>
+                    </div>
+                </div>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<foot></foot>
