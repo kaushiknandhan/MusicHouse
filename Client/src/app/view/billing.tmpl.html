@@ -1,0 +1,60 @@
+<nav-bar></nav-bar>
+<div class="layout container">
+    <div class="total-price">
+        <h3>Total Cost: {{billingVm.totalCartPrice | currency}}</h3>
+        <hr>
+        <a href="#/successorder"><button class="btn btn-success btns-login" ng-click="billingVm.submitOrder()">Submit order</button></a>
+        <a href="#/cancelorder"><button class="btn btn-danger btns-login">Cancel order</button></a>
+    </div>
+    <div class="billing-summary">
+        <div class="row">
+        <h3 class="text-center">Receipt</h3>
+        <p class="pull-right">Date: {{billingVm.billingDate | date}}</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 text-center">
+                <p>{{billingVm.customerInfo.customerName}}</p>
+                <p>{{billingVm.customerInfo.customerEmail}}</p>
+                <p>{{billingVm.customerInfo.customerMobile}}</p>
+            </div>
+            <div class="col-sm-6 text-center">
+                <p>{{billingVm.customerInfo.shippingAddress.address}}</p>
+                <p>{{billingVm.customerInfo.shippingAddress.city}}</p>
+                <p>{{billingVm.customerInfo.shippingAddress.state}}</p>
+                <p>{{billingVm.customerInfo.shippingAddress.zipcode}}</p>
+            </div>
+            </div>
+        <hr>
+        <div class="row">
+            <div class="table-layout">
+            <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="cartItem in billingVm.cartItems2">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <td><img ng-src="{{cartItem.productImage}}" class="product-img"></td>
+                            </div>
+                            <div class="col-sm-9">
+                                <td>{{cartItem.productName}}</td>
+                                <td>{{cartItem.productQuantity}}</td>
+                                <td>{{cartItem.productPrice | currency}}</td>
+                                <td>{{cartItem.totalPrice | currency}}</td>
+                            </div>
+                        </div>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<foot></foot>

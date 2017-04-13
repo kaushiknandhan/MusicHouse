@@ -1,0 +1,72 @@
+<navbar-admin></navbar-admin>
+
+<div class = "spinner-box"  ng-if="checkordersVm.spinner">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
+<div class="layout container">
+<div class="container layout">
+    <div class="row">
+        <h2>ORDERS LIST</h2>
+        <h4>The Orders summary details</h4>
+    </div>
+        <div class="orders-box">
+            <div class="row">
+                <div class="order-detail-row" ng-repeat="billingOrder in checkordersVm.billingOrders">
+                    <div class="row">
+                        <p class="text-center">Ordered On: {{billingOrder.orderedOn | date:'medium'}}</p>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <h4 class="text-center">Ordered Products</h4>
+                                <hr>
+                            </div>
+                            <div ng-repeat="cartItem in billingOrder.cartItem" class="product-order-box">
+                                <div class="row text-center">
+                                    <div class="col-sm-2">
+                                        <img ng-src="{{cartItem.product.productImage}}" class="img-responsive">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        {{cartItem.product.productName}}
+                                    </div>
+                                    <div class="col-sm-3">
+                                        {{cartItem.quantity}}
+                                    </div>
+                                    <div class="col-sm-3">
+                                        {{cartItem.totalPrice | currency}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <p class="text-center">Grand Total: {{billingOrder.grandTotal | currency}}</p>
+                            </div>
+                        </div>
+                    <div class="col-sm-3 text-center">
+                        <div class="row">
+                            <h4 class="text-center">Customer Details</h4>
+                            <hr>
+                        </div>
+                        <p>{{billingOrder.customer.customerName}}</p>
+                        <p>{{billingOrder.customer.customerEmail}}</p>
+                        <p>{{billingOrder.customer.customerMobile}}</p>
+                    </div>
+
+                    <div class="col-sm-3 text-center">
+                        <div class="row">
+                            <h4 class="text-center">Shipping Details</h4>
+                            <hr>
+                        </div>
+                        <div>
+                            <p>{{billingOrder.customer.shippingAddress.address}}</p>
+                            <p>{{billingOrder.customer.shippingAddress.city}}</p>
+                            <p>{{billingOrder.customer.shippingAddress.state}}</p>
+                            <p>{{billingOrder.customer.shippingAddress.zipcode}}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>

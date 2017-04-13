@@ -1,0 +1,72 @@
+<nav-bar></nav-bar>
+
+<div class="layout container">
+    <div class="row">
+        <h2>Customer Details</h2>
+        <h4>Please fill the details below</h4>
+    </div>
+    <div class="customer-details-layout">
+    <form name="customerDedtailsForm" ng-submit="customerDetailVm.submitShippingDetials()" novalidate>
+        <h3 class="text-center">Customer Details</h3>
+        <div class="form-group">
+            <label for="customername">Customer Name:</label>
+            <input type="text" class="form-control" ng-model="customerDetailVm.customer.customerName" name = "customername" id="customername" placeholder="Customer Name" minlength="5" required>
+            <div ng-messages="customerDedtailsForm.customername.$error" ng-if="customerDedtailsForm.customername.$dirty" class="error">
+                <p ng-message="required">This field cannot be empty</p>
+                <p ng-message="minlength">Atleast 5 characters is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" ng-model="customerDetailVm.customer.customerEmail" id="email" name = "email" placeholder="Email Address" required>
+            <div ng-messages="customerDedtailsForm.email.$error" ng-if="customerDedtailsForm.email.$dirty" class="error">
+                <p ng-message="required">This field cannot be empty</p>
+                <p ng-message="email">Enter a valid Email Address</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input type="tel" class="form-control" ng-model="customerDetailVm.customer.customerMobile" id="mobile" name="mobile" placeholder="Mobile number" minlength="10" required>
+            <div ng-messages="customerDedtailsForm.mobile.$error" ng-if="customerDedtailsForm.mobile.$dirty" class="error">
+                <p ng-message="required">This field cannot be empty</p>
+                <p ng-message="minlength">Atleast 10 digits is required</p>
+            </div>
+        </div>
+        <hr>
+        <h3 class="text-center">Shipping Address</h3>
+        <div class="form-group">
+            <label for="streetname">Street Name:</label>
+            <input type="text" class="form-control" ng-model="customerDetailVm.customer.shippingAddress.address" name = "streetname" id="streetname" placeholder="Enter Address" minlength="5" required>
+            <div ng-messages="customerDedtailsForm.streetname.$error" ng-if="customerDedtailsForm.streetname.$dirty" class="error">
+                <p ng-message="required">This field cannot be empty</p>
+                <p ng-message="minlength">Atleast 5 characters is required</p>
+            </div>
+            </div>
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" class="form-control" ng-model="customerDetailVm.customer.shippingAddress.city" name = "city" id="city" placeholder="Enter City" required>
+            <div ng-messages="customerDedtailsForm.city.$error" ng-if="customerDedtailsForm.city.$dirty" class="error">
+                <p ng-message="required">This field cannot be empty</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="state">State:</label>
+            <input type="text" class="form-control" ng-model="customerDetailVm.customer.shippingAddress.state" name = "state" id="state" placeholder="Enter State" required>
+            <div ng-messages="customerDedtailsForm.state.$error" ng-if="customerDedtailsForm.state.$dirty" class="error">
+                <p ng-message="required">This field cannot be empty</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="zipcode">Zipcode:</label>
+            <input type="text" class="form-control" ng-model="customerDetailVm.customer.shippingAddress.zipcode" name = "zipcode" id="zipcode" placeholder="Enter Zipcode" required>
+            <div ng-messages="customerDedtailsForm.zipcode.$error" ng-if="customerDedtailsForm.zipcode.$dirty" class="error">
+                <p ng-message="required">This field cannot be empty</p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btns-login" ng-disabled="customerDedtailsForm.$invalid">submit</button>
+        <hr>
+        <a href="#/products"><button class="btn btn-success  btns-login">Continue Shopping</button></a>
+    </form>
+    </div>
+</div>
+<foot></foot>
