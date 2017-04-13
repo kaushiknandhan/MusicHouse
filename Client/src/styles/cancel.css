@@ -1,0 +1,14 @@
+.cancel-info,success-info{
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid black;
+
+}
+.cancel-heading,.success-heading{
+    font-weight: bold;
+    font-size: large;
+    padding: 20px;
+    border: 1px solid black;
+    background-color: lightgrey;
+}

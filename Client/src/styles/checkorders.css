@@ -1,0 +1,28 @@
+.orders-box{
+    width: 100%;
+    padding: 20px;
+    height: auto;
+    margin: auto;
+    margin-top: 0px;
+    padding-top: 0px;
+
+}
+.order-detail-row{
+    padding: 20px;
+    margin: 10px;
+    height: auto;
+    background-color: whitesmoke;
+}
+
+.image-icon{
+    width: 60px;
+    height: 60px;
+}
+.product-order-box{
+ width: auto;
+    padding: 5px;
+    border: 1px solid red;
+    margin: 3px;
+    margin-right: 0px;
+
+}
